@@ -8,10 +8,7 @@ namespace Persistence
     {
         public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<BeerReviewDbContext>(options =>
-                options.UseSqlServer(
-                    configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly(typeof(BeerReviewDbContext).Assembly.FullName)));
+            services.AddDbContext<BeerReviewDbContext>();
 
             return services;
         }
